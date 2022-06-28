@@ -24,6 +24,7 @@ add_action('wp_enqueue_scripts','theme_styles');
 
 //theme menu
 add_theme_support('menus');
+add_theme_support('post-thumbnails');
 
 //menu
 register_nav_menus(
@@ -33,3 +34,7 @@ register_nav_menus(
         'footer-menu' => 'Footer Menu Location',
     )
 );
+
+//custom image size
+add_image_size('blog-large',800,400,true);
+add_image_size('blog-small',300,200,true);

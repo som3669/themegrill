@@ -71,3 +71,59 @@ Version: 1.0.0
     top: 0;
     left: 0;
 }
+.blog_post{
+    border: 1px solid #80808040;
+    border-radius: 3px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.blog_post a{
+    background: green;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.author{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.author p{
+    margin: 0px;
+}
+#comments{
+    font-size: 18px;
+}
+#reply-title{
+    font-size: 18px;
+}
+.comment-form-comment{
+    display: inline-grid;
+}
+.form-submit .submit{
+    background: green;
+    color: white;
+    border-radius: 3px;
+    border: none;
+}
+.commentdiv{
+    margin-top: 20px;
+}
+.imgthumbnail{
+    width: 800px;
+    height: 400px;
+    object-fit: cover;
+}
+.card-img-top{
+    height: 250px;
+    object-fit: cover;
+}
+.blog_post{
+    display: flex;
+}
+.blog_post img{
+    width: 300px;
+
+    margin: auto;
+}

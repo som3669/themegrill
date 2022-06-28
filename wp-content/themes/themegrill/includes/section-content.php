@@ -134,37 +134,31 @@
 
 <section class="section">
     <div class="container">
-        <h6 class="xs-font mb-0">Blanditiis unde illum earum</h6>
-        <h3 class="section-title mb-4">Expertises</h3>
+        <h6 class="xs-font mb-0">Read Our Best Blogs</h6>
+        <h3 class="section-title mb-4">Blog Post</h3>
 
         <div class="row text-center">
+<?php
+if(have_posts()):
+    while (have_posts()):
+        the_post();
+?>
             <div class="col-lg-4">
-                <a href="javascript:void(0)" class="card border-0 text-dark">
-                    <img class="card-img-top" src="assets/imgs/img-5.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
+                <a href="<?php the_permalink(); ?>" class="card border-0 text-dark">
+                    <img class="card-img-top" src="<?php the_post_thumbnail_url(); ?>" >
                     <span class="card-body">
-                            <h4 class="title mt-4">Codding &amp; Designing</h4>
-                            <p class="xs-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <h4 class="title mt-4"><?php the_title(); ?></h4>
+                            <p class="xs-font"><?php echo wp_trim_words( get_the_content(), 40, '...' );
+                                ?></p>
                         </span>
                 </a>
             </div>
-            <div class="col-lg-4">
-                <a href="javascript:void(0)" class="card border-0 text-dark">
-                    <img class="card-img-top" src="assets/imgs/img-6.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
-                    <span class="card-body">
-                            <h4 class="title mt-4">Graphic Design</h4>
-                            <p class="xs-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </span>
-                </a>
-            </div>
-            <div class="col-lg-4">
-                <a href="javascript:void(0)" class="card border-0 text-dark">
-                    <img class="card-img-top" src="assets/imgs/img-7.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, ollie Landing page">
-                    <span class="card-body">
-                            <h4 class="title mt-4">Development</h4>
-                            <p class="xs-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </span>
-                </a>
-            </div>
+            <?php
+    endwhile;
+
+endif; ?>
+
+
         </div>
     </div>
 </section>
