@@ -22,7 +22,12 @@
             <a class="navbar-brand" href="#">
                 <?php
                 if ( function_exists( 'the_custom_logo' ) ) {
-                    the_custom_logo();
+                    the_custom_logo('mytheme-logo');
+                }else{
+                   echo bloginfo('name');
+                }
+                if (!has_custom_logo()) {
+                    echo bloginfo('name');
                 }
                 ?>
             </a>

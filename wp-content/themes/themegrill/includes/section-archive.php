@@ -8,7 +8,7 @@
         <div>
             <img src="<?php the_post_thumbnail_url('blog-small'); ?>" alt="">
         </div>
-    <div class="">
+    <div class="bloglist">
         <h3><?php the_title(); ?></h3>
         <div class="author"><p>Author: <?php the_author(); ?></p><p><?php echo get_the_date()?></p></div>
 
