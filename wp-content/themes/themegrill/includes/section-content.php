@@ -84,9 +84,21 @@
             <div class="col-md-4">
                 <h6 class="xs-font mb-0">nobis dolorem sapiente evenie.</h6>
                 <h3 class="section-title">About Us</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt, unde aperiam aliquid quia repudiandae, ex harum quis amet delectus maxime, tempora possimus aut laboriosam magni corrupti labore. Doloremque, sit?</p>
+                <?php
+                $args = array(
+                    'post_type' => 'page',
+                    'slug' => 'about-us',
+                    'posts_per_page' => 1,
 
-                <a href="javascript:void(0)">Read more...</a>
+                );
+                $page = new WP_Query($args);
+                while($page->have_posts()) : $page->the_post();
+                ?>
+
+                <p><?php the_excerpt(); ?></p>
+
+                <a href="<?php the_permalink(); ?>">Read more...</a>
+                <?php endwhile; wp_reset_postdata(); ?>
             </div>
             <div class="col-sm-6 col-md-4 ml-auto">
                 <div class="widget">
