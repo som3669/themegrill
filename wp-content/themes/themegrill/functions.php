@@ -88,3 +88,11 @@ function slider(){
 }
 add_action('init','slider');
 
+
+
+//customlogo
+add_theme_support( 'custom-logo' );
+
+//title
+add_theme_support( 'title' );
+add_theme_support( 'title-tag' );
