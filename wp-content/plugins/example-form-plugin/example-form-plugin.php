@@ -7,7 +7,7 @@
 
 function example_form_plugin(){
     $content = '';
-    $content .= '   <form class="contact-form" method="post" action="http://localhost/themegrill/thank-you/">
+    $content .= '   <form class="contact-form" method="post" action="https://som3669.github.io/themegrill/thank-you/">
                     <div class="form-row">
                         <div class="col form-group">
                             <input type="text" class="form-control" placeholder="Name">
