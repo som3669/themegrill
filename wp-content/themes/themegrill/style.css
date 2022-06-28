@@ -33,9 +33,13 @@ Version: 1.0.0
     top: 24px;
     left: 10px;
     background: #ffffff;
-    width: 180px;
-    padding: 20px 0px;
+    width: 120px;
+    padding: 10px 0px;
+
     border-radius: 3px;
+    box-shadow: 0px 0px 7px 0px #00000045;
+    -webkit-box-shadow: 0px 0px 7px 0px #00000045;
+    -moz-box-shadow: 0px 0px 7px 0px #00000045;
 
 }
 .topbar .sub-menu li{
@@ -59,8 +63,8 @@ Version: 1.0.0
 .topbar .sub-menu .menu-item-has-children .sub-menu{
     display: none;
     position: absolute;
-    left: 180px;
-    top: -7px;
+    left: 121px;
+    top: 15px;
 }
 .topbar .sub-menu .menu-item-has-children:hover .sub-menu{
     display: block;
@@ -126,4 +130,10 @@ Version: 1.0.0
     width: 300px;
 
     margin: auto;
+}
+.widget_block {
+    margin: 10px 0px !important;
+}
+.widget_block p{
+    margin: 0px;
 }
