@@ -74,24 +74,22 @@
     <div class="infos container mb-4 mb-md-2">
         <div class="title">
             <h6 class="subtitle font-weight-normal">Are locking for</h6>
-            <h5>Lorem inpsum</h5>
-            <p class="font-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <h5>Theme</h5>
+            <p class="font-small">Get your desire theme with us.</p>
         </div>
         <div class="socials text-right">
             <div class="row justify-content-between">
                 <div class="col">
-                    <a class="d-block subtitle"><i class="ti-microphone pr-2"></i> (123) 456-7890</a>
-                    <a class="d-block subtitle"><i class="ti-email pr-2"></i> info@website.com</a>
+                    <a class="d-block subtitle"><i class="fa-solid fa-phone"></i> (123) 456-7890</a>
+                    <a class="d-block subtitle"><i class="fa-solid fa-envelope"></i>  info@example.com</a>
                 </div>
                 <div class="col">
                     <h6 class="subtitle font-weight-normal mb-2">Social Media</h6>
                     <div class="social-links">
-                        <a href="javascript:void(0)" class="link pr-1"><i class="ti-facebook"></i></a>
-                        <a href="javascript:void(0)" class="link pr-1"><i class="ti-twitter-alt"></i></a>
-                        <a href="javascript:void(0)" class="link pr-1"><i class="ti-google"></i></a>
-                        <a href="javascript:void(0)" class="link pr-1"><i class="ti-pinterest-alt"></i></a>
-                        <a href="javascript:void(0)" class="link pr-1"><i class="ti-instagram"></i></a>
-                        <a href="javascript:void(0)" class="link pr-1"><i class="ti-rss"></i></a>
+                        <a href="javascript:void(0)" class="link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="javascript:void(0)" class="link"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="javascript:void(0)" class="link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="javascript:void(0)" class="link"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -105,61 +103,62 @@
 
         <div class="row align-items-center mr-auto">
             <div class="col-md-4">
-                <h6 class="xs-font mb-0">nobis dolorem sapiente evenie.</h6>
+                <h6 class="xs-font mb-0">THE STORY OF THEME</h6>
                 <h3 class="section-title">About Us</h3>
                 <?php
-                $args = array(
-                    'post_type' => 'page',
-                    'slug' => 'about-us',
-                    'posts_per_page' => 1,
 
-                );
-                $page = new WP_Query($args);
-                while($page->have_posts()) : $page->the_post();
-                ?>
+                $page_slug ='about-us';
+                $page_data = get_page_by_path($page_slug);
+                $link = get_permalink( get_page_by_path( $page_slug ) );
 
-                <p><?php the_excerpt(); ?></p>
+                $cont = apply_filters('the_content', $page_data->post_content);
 
-                <a href="<?php the_permalink(); ?>">Read more...</a>
-                <?php endwhile; wp_reset_postdata(); ?>
+?>
+
+                <p><?php echo wp_trim_words($cont,40,'....')?></p>
+
+                <a href="<?php
+
+                echo $link ?>">Read more...</a>
+
             </div>
             <div class="col-sm-6 col-md-4 ml-auto">
                 <div class="widget">
                     <div class="icon-wrapper">
-                        <i class="ti-calendar"></i>
+                        <i class="fa-solid fa-layer-group"></i>
                     </div>
                     <div class="infos-wrapper">
                         <h4 class="text-primary">15+</h4>
-                        <p>onsectetur perspiciatis</p>
+                        <p>Theme</p>
                     </div>
                 </div>
                 <div class="widget">
                     <div class="icon-wrapper">
-                        <i class="ti-face-smile"></i>
+                        <i class="fa-solid fa-plug"></i>
                     </div>
                     <div class="infos-wrapper">
-                        <h4 class="text-primary">125+</h4>
-                        <p>onsectetur perspiciatis</p>
+                        <h4 class="text-primary">12+</h4>
+                        <p>Plugin</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="widget">
                     <div class="icon-wrapper">
-                        <i class="ti-star"></i>
+                        <i class="fa-solid fa-ticket"></i>
                     </div>
                     <div class="infos-wrapper">
                         <h4 class="text-primary">3434+</h4>
-                        <p>onsectetur perspiciatis</p>
+                        <p>Support</p>
                     </div>
                 </div>
                 <div class="widget">
                     <div class="icon-wrapper">
-                        <i class="ti-user"></i>
+                        <i class="fa-solid fa-person-dress"></i>
                     </div>
                     <div class="infos-wrapper">
-                        <h4 class="text-primary">80+</h4>
-                        <p>onsectetur perspiciatis</p>
+                        <h4 class="text-primary">180+</h4>
+                        <p>Client</p>
                     </div>
                 </div>
             </div>
@@ -203,28 +202,14 @@ endif; ?>
 <section id="contact" class="section pb-0">
 
     <div class="container">
-        <h6 class="xs-font mb-0">Culpa perferendis excepturi.</h6>
+        <h6 class="xs-font mb-0">Get In Touch.</h6>
         <h3 class="section-title mb-5">Contact Us</h3>
 
         <div class="row align-items-center justify-content-between">
             <div class="col-md-8 col-lg-7">
-
-                <form class="contact-form">
-                    <div class="form-row">
-                        <div class="col form-group">
-                            <input type="text" class="form-control" placeholder="Name">
-                        </div>
-                        <div class="col form-group">
-                            <input type="email" class="form-control" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Your Message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-block" value="Send Message">
-                    </div>
-                </form>
+<?php
+                echo do_shortcode( '[example_form]' );
+                ?>
             </div>
             <div class="col-md-4 d-none d-md-block order-1">
                 <ul class="list">
@@ -233,9 +218,9 @@ endif; ?>
                     </li>
                     <li class="list-body">
                         <p class="py-2">Contact us and we'll get back to you within 24 hours.</p>
-                        <p class="py-2"><i class="ti-location-pin"></i> 12345 Fake ST NoWhere AB Country</p>
-                        <p class="py-2"><i class="ti-email"></i>  info@website.com</p>
-                        <p class="py-2"><i class="ti-microphone"></i> (123) 456-7890</p>
+                        <p class="py-2"><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</p>
+                        <p class="py-2"><i class="fa-solid fa-envelope"></i> info@example.com</p>
+                        <p class="py-2"><i class="fa-solid fa-phone"></i> (123) 456-7890</p>
 
                     </li>
                 </ul>
@@ -245,16 +230,14 @@ endif; ?>
         <footer class="footer mt-5 border-top">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 text-center text-md-left">
-                    <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a target="_blank" href="http://www.devcrud.com">DevCRUD</a></p>
+                    <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a target="_blank" href="#"></a></p>
                 </div>
                 <div class="col-md-6 text-center text-md-right">
                     <div class="social-links">
-                        <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
-                        <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
-                        <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
-                        <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
-                        <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
-                        <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+                        <a href="javascript:void(0)" class="link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="javascript:void(0)" class="link"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="javascript:void(0)" class="link"><i class="fa-brands fa-instagram"></i></a>
+
                     </div>
                 </div>
             </div>
@@ -262,19 +245,7 @@ endif; ?>
     </div>
 </section>
 
-<!-- core  -->
-<script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-<script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
-<!-- bootstrap 3 affix -->
-<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-
-<!-- Owl carousel  -->
-<script src="assets/vendors/owl-carousel/js/owl.carousel.js"></script>
-
-
-<!-- Ollie js -->
-<script src="assets/js/Ollie.js"></script>
 
 </body>
 </html>

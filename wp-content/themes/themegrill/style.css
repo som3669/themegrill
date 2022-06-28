@@ -142,3 +142,6 @@ Version: 1.0.0
     height: 45px !important;
     object-fit: cover;
 }
+.icon-wrapper i{
+    color: #f06161 !important;
+}

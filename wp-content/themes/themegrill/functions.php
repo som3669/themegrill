@@ -18,6 +18,9 @@ function theme_styles(){
     wp_enqueue_style('owl.carousel-css',CUSTOM_DIR_URI.'/assets/css/owl.carousel.css',[],false,'all');
     wp_enqueue_style('owl.theme.default-css',CUSTOM_DIR_URI.'/assets/css/owl.theme.default.css',[],false,'all');
     wp_enqueue_style('themify-icons-css',CUSTOM_DIR_URI.'/assets/css/themify-icons.css',[],false,'all');
+    wp_enqueue_script('ollie-js',CUSTOM_DIR_URI.'/assets/js/ollie.js',['jquery'],false,true);
+    wp_enqueue_script('owl.carousel-js',CUSTOM_DIR_URI.'/assets/js/owl.carousel.js',['jquery'],false,true);
+    wp_enqueue_style('fontawesome','https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
 }
 add_action('wp_enqueue_scripts','theme_styles');
 
@@ -96,3 +99,7 @@ add_theme_support( 'custom-logo' );
 //title
 add_theme_support( 'title' );
 add_theme_support( 'title-tag' );
+
+// Enable the use of shortcodes in text widgets.
+
+add_filter( 'widget_text', 'do_shortcode' );
