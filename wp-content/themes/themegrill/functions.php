@@ -63,3 +63,28 @@ function sidebars(){
     );
 }
 add_action('widgets_init','sidebars');
+
+
+function slider(){
+    $support = array(
+      'title',
+      'editor',
+      'thumbnail',
+
+    );
+    $arg = array(
+        'labels' => array(
+            'name' => 'Sliders',
+            'singular_name' => 'slider',
+
+        ),
+      'hierarchical' => true,
+      'menu_icon' => 'dashicons-slides',
+      'public' => true,
+      'has_archive' => false,
+      'supports' => $support,
+    );
+    register_post_type('slider',$arg);
+}
+add_action('init','slider');
+

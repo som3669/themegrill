@@ -26,24 +26,47 @@
     <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="container">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <?php
+                $args = array(
+                    'post_type' => 'slider',
+                    'posts_per_page' => 3,
+
+                );
+                $i = 1;
+                $slider = new WP_Query($args);
+                while($slider->have_posts()) : $slider->the_post();
+                ?>
+                <div class="carousel-item <?php if($i == 1): echo 'active'; endif;?>">
+
+                        <style>
+                            .header {
+                                position: relative;
+                                height: 100vh;
+                                min-height: 600px;
+                                background-image: url(<?php the_post_thumbnail_url(); ?>);
+                                background-size: cover;
+                                background-position: center;
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: -webkit-flex;
+                                display: flex;
+                                -webkit-box-orient: vertical;
+                                -webkit-box-direction: normal;
+                                -webkit-flex-direction: column;
+                                -ms-flex-direction: column;
+                                flex-direction: column;
+                            }
+                        </style>
                     <div class="carousel-caption d-none d-md-block">
-                        <h1 class="carousel-title">We Make<br> Creative Design</h1>
+                        <h1 class="carousel-title"><?php the_title() ?></h1>
                         <button class="btn btn-primary btn-rounded">Learn More</button>
                     </div>
+
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 class="carousel-title">We Make <br> Responsive Design</h1>
-                        <button class="btn btn-primary btn-rounded">Learn More</button>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 class="carousel-title">We Make <br> Simple Design</h1>
-                        <button class="btn btn-primary btn-rounded">Learn More</button>
-                    </div>
-                </div>
+                <?php
+                $i++;
+                ?>
+                <?php endwhile; wp_reset_postdata(); ?>
             </div>
         </div>
     </div>
