@@ -42,9 +42,6 @@ register_nav_menus(
 add_image_size('blog-large',800,400,true);
 add_image_size('blog-small',300,200,true);
 add_image_size('mytheme-logo', 180, 180);
-add_theme_support('custom-logo', array(
-    'size' => 'mytheme-logo'
-));
 
 
 //Register sidebar
@@ -97,27 +94,24 @@ add_action('init','slider');
 
 
 //customlogo
-//add_theme_support( 'custom-logo' );
+add_theme_support( 'custom-logo' );
 
-//function themename_custom_logo_setup() {
-//    $defaults = array(
-//        'height'               => 100,
-//        'width'                => 400,
-//        'flex-height'          => true,
-//        'flex-width'           => true,
-//        'header-text'          => array( 'site-title', 'site-description' ),
-//        'unlink-homepage-logo' => true,
-//    );
-//
-//    add_theme_support( 'custom-logo', $defaults );
-//}
-//
-//add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
+function themename_custom_logo_setup() {
+    $defaults = array(
+        'height'               => 100,
+        'width'                => 400,
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'header-text'          => array( 'site-title', 'site-description' ),
+        'unlink-homepage-logo' => true,
+    );
+
+    add_theme_support( 'custom-logo', $defaults );
+}
+
+add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 
 //title
 add_theme_support( 'title' );
 add_theme_support( 'title-tag' );
 
-// Enable the use of shortcodes in text widgets.
-
-add_filter( 'widget_text', 'do_shortcode' );
